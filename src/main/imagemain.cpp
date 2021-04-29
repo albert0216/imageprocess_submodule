@@ -169,8 +169,8 @@ int main(int argc, char** argv)
                 ImageBase->TDilation(ModelUnit->Label_Model);
                 ModelUnit->ChangeToColorModel_ImageProcess(colormodel);
 /////////////////////////////////////////////////////compress_image/////////////////////////////////////////////////////
-                cv::resize(colormodel, compress_image, cv::Size(32, 24));
-                msg_compressimage = cv_bridge::CvImage(std_msgs::Header(), "bgr8", compress_image).toImageMsg();
+                //cv::resize(colormodel, compress_image, cv::Size(32, 24));
+                msg_compressimage = cv_bridge::CvImage(std_msgs::Header(), "bgr8", colormodel).toImageMsg();
                 pub_compressimage.publish(msg_compressimage);
 /////////////////////////////////////////////////////compress_image/////////////////////////////////////////////////////
                 ImageBase->TSegmentationMain(ModelUnit->Label_Model);
